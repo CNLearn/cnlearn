@@ -91,10 +91,7 @@ for word, information in dictionary.items():
         information['pinyin_accent'] = " ".join(convert_everything_to_pinyin(information['pinyin_num'].split()))
     except TypeError:
         information['pinyin_accent'] = ''
+
 import io
-
-#with open('finalDict.json', 'w') as f:
-#    json.dump(dictionary, f).encode('utf8')
-
 with io.open('dict.json', 'w', encoding='utf8') as json_file:
     json.dump(dictionary, json_file, ensure_ascii=False)
