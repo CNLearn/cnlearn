@@ -129,10 +129,3 @@ dmypy.json
 .pyre/
 
 
-# add public folder to ignore hugo static website
-public
-archetypes
-config.toml
-content
-publish_to_ghpages.sh
-themes
