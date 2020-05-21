@@ -16,6 +16,7 @@ jobs:
           pip install jieba
           pip install pytest
       - name: run the pytest suite
+        shell: bash
+        working-directory: .src/dictionary
         run:
-          cd src/dictionary
           pytest
