@@ -43,7 +43,6 @@ class Search(object):
         # now let's use jieba's segmenter to cut the string into words
         self.search_segmented = cut(self.search_term, cut_all=all_flag)
         # the above is a generator
-#        print([i for i in self.search_segmented])
         for i in self.search_segmented:
             try:
                 word = Word(self.dictionary, **self.dictionary[i])

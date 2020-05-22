@@ -50,13 +50,6 @@ class Common(ABC):
         pass
 
 
-class Word(Common):
-    def __init__(self, dictionary,**word):
-        super().__init__(self, dictionary, **word)
-        self.pinyin_num = word['pinyin_num']
-        self.pinyin_accent = word['pinyin_accent']
-        self.radical = None
-          
 
 class Character(Common):
     def __init__(self, **word):

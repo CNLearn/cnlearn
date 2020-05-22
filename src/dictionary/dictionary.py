@@ -10,6 +10,6 @@ It is very basic for now.
 '''
 
 class Dictionary(object):
-    def __init__(self, dictionary="../../dict/dict.json"):
+    def __init__(self, dictionary="dict.json"):
         with open(dictionary, "r") as f:
             self.dict = load(f)
