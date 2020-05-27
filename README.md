@@ -1,3 +1,5 @@
+![](https://github.com/vladutmd/cnlearn/workflows/Run%20python%20tests/badge.svg)
+
 # CN Learn
 Cross-platform Python-based Mandarin Chinese dictionary and learning tool
 
