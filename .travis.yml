@@ -6,6 +6,6 @@ python:
 install:
   - pip install jieba pytest
 before-script:
-  - cd src/directory
+  - cd src/dictionary
 script:
   - pytest
