@@ -1,4 +1,5 @@
 ![](https://github.com/vladutmd/cnlearn/workflows/Run%20python%20tests/badge.svg)
+[![Travis CI](https://travis-ci.org/vladutmd/cnlearn.svg?branch=master)](https://travis-ci.org/vladutmd/cnlearn)
 
 # CN Learn
 Cross-platform Python-based Mandarin Chinese dictionary and learning tool
