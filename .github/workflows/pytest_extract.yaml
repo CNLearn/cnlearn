@@ -22,10 +22,6 @@ jobs:
         run: |
           flake8 extract.py
           flake8 extract_test.py
-      - name: mypy check
-        working-directory: dict
-        run: |
-          mypy extract.py
       - name: run the pytest suite
         working-directory: dict
         run: |
