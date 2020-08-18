@@ -17,17 +17,11 @@ jobs:
           pip install pytest
           pip install flake8
           pip install mypy
-          pip install pylint
       - name: flake8 linter
         working-directory: dict
         run: |
           flake8 extract.py
           flake8 extract_test.py
-      - name: pylint linter
-        working-directory: dict
-        run : |
-          pylint extract.py
-          pylint extract_test.py
       - name: mypy check
         working-directory: dict
         run: |
