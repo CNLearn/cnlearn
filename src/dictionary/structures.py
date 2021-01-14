@@ -1,12 +1,8 @@
 from abc import ABC, abstractmethod
-from dictionary import Dictionary
 '''
 This file will contain the various lanuage structures used
 in the program including Words, Sentences, Expressions, Radicals, etc.
 '''
-
-
-
 
 
 class Common(ABC):
@@ -16,14 +12,15 @@ class Common(ABC):
     Its methods are implemented as ABC methods that its children will have
     to define.
     '''
-    def __init__(self, dictionary, **name):
+    # def __init__(self, dictionary, **name):
+
+    def __init__(self, **name):
         self.name = name['simplified']
-        self.dict = dictionary
+        # self.dict = dictionary
         self.definition = name['definition']
-        self.stroke_diagram = None # not yet implemented
+        self.stroke_diagram = None  # not yet implemented
         self.simplified = name['simplified']
         self.traditional = name['traditional']
-
 
     @abstractmethod
     def list_components(self):
@@ -48,7 +45,6 @@ class Common(ABC):
     @abstractmethod
     def get_pinyin(self, pinyin_type):
         pass
-
 
 
 class Character(Common):
@@ -113,14 +109,9 @@ class Character(Common):
         return None
 
 
-
-
-
-
-
 class Word(Common):
-    def __init__(self, dictionary, **word):
-        super().__init__(dictionary, **word)
+    def __init__(self, **word):
+        super().__init__(**word)
         self.pinyin_num = word['pinyin_num']
         self.pinyin_accent = word['pinyin_accent']
         self.definition = word['definition']
@@ -161,11 +152,11 @@ class Word(Common):
 
     def __str__(self):
         template = (
-                f"Word: {self.name} \n"
-                f"Traditional: {self.traditional} \n"
-                f"Pinyin: {self.pinyin_accent} \n"
-                f"Pinyin: {self.pinyin_num} \n"
-                f"Definition: {self.definition}")
+            f"Word: {self.name} \n"
+            f"Traditional: {self.traditional} \n"
+            f"Pinyin: {self.pinyin_accent} \n"
+            f"Pinyin: {self.pinyin_num} \n"
+            f"Definition: {self.definition}")
         return template
 
     def __repr__(self):
@@ -173,8 +164,9 @@ class Word(Common):
 
     def __eq__(self, other):
         return self.__class__ == other.__class__\
-                and self.name == other.name\
-                and self.pinyin_accent == other.pinyin_accent
+            and self.name == other.name\
+            and self.pinyin_accent == other.pinyin_accent\
+            and self.definition == other.definition
 
     def list_components(self):
         return None
