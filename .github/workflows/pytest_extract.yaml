@@ -1,4 +1,4 @@
-name: Run python tests for the extraction script
+name: Run python tests for the extraction script.
 on: [push]
 
 jobs:
