@@ -45,7 +45,7 @@ class Character:
     def __repr__(self):
         return f"<Character({self.character}, radical='{self.radical})>"
 
-engine = create_engine("sqlite:///dictionary.db")
-with engine.begin() as connection:
-    mapper_registry.metadata.create_all(connection)
+# engine = create_engine("sqlite:///dictionary.db")
+# with engine.begin() as connection:
+#     mapper_registry.metadata.create_all(connection)
 
