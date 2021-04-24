@@ -7,22 +7,29 @@ from src.db.models import Word, Character
 from typing import List
 
 
-def get_simplified_word(db: Session, simplified: str, pinyin: str = None) -> List[Row]:
+def get_simplified_word(
+    db: Session, simplified: str, pinyin_clean: str = None
+) -> List[Row]:
     word_selection: Select = (
         select(Word).where(Word.simplified == simplified).order_by(Word.frequency)
     )
-    if pinyin:
-        word_selection = word_selection.where(Word.pinyin_clean == pinyin)
+    if pinyin_clean:
+        word_selection = word_selection.where(Word.pinyin_clean == pinyin_clean)
     result: ChunkedIteratorResult = db.execute(word_selection)
     words: List[Row] = result.all()
     return words
 
-def get_simplified_word_containing_char(db: Session, simplified: str, pinyin: str = None) -> List[Row]:
+
+def get_simplified_word_containing_char(
+    db: Session, simplified: str, pinyin_clean: str = None
+) -> List[Row]:
     word_selection: Select = (
-        select(Word).where(Word.simplified.contains(simplified)).order_by(Word.frequency)
+        select(Word)
+        .where(Word.simplified.contains(simplified))
+        .order_by(Word.frequency)
     )
-    if pinyin:
-        word_selection = word_selection.where(Word.pinyin_clean.contains(pinyin))
+    if pinyin_clean:
+        word_selection = word_selection.where(Word.pinyin_clean.contains(pinyin_clean))
     result: ChunkedIteratorResult = db.execute(word_selection)
     words: List[Row] = result.all()
     return words
