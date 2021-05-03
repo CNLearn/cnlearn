@@ -137,3 +137,5 @@ dmypy.json
 
 
 src/old/
+
+.DS_Store
