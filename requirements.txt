@@ -28,11 +28,7 @@ pluggy==0.13.1
 prompt-toolkit==3.0.10
 ptyprocess==0.7.0
 py==1.10.0
-<<<<<<< HEAD
-pydantic==1.7.4
-=======
 pydantic==1.8.2
->>>>>>> 2d35b4d (Adding Dictionary object and tests)
 Pygments==2.7.4
 pyparsing==2.4.7
 pytest==6.2.4
