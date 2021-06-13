@@ -63,5 +63,5 @@ def get_word_and_character(
         word_and_character_select = word_and_character_select.where(
             Word.pinyin_accent == pinyin_accent
         )
-    word_and_character: Row = db.execute(word_and_character_select).first()
+    word_and_character: List[Row] = db.execute(word_and_character_select).all()
     return word_and_character

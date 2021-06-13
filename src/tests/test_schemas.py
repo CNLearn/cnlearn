@@ -104,7 +104,10 @@ def test_bu_character_database(db, my_character_1):
     """
     Tests the results for the 不 character from the database through the Character schema
     """
-    bu_word, bu_character = get_word_and_character(db, simplified="不")
+    results = get_word_and_character(db, simplified="不")
+    assert len(results) == 1
+    bu_word, bu_character = results[0]
+
     bu_character_schema: Character = Character.from_orm(bu_word)
     bu_character_schema.decomposition = bu_character.decomposition
     bu_character_schema.etymology = bu_character.etymology
@@ -124,9 +127,9 @@ def test_man_character_database(db, my_character_2):
     """
     Tests the results for the 满 character from the database through the Character schema
     """
-    man_word, man_character = get_word_and_character(
-        db, simplified="满", pinyin_clean="man"
-    )
+    results = get_word_and_character(db, simplified="满", pinyin_clean="man")
+    assert len(results) == 1
+    man_word, man_character = results[0]
     man_character_schema: Character = Character.from_orm(man_word)
     man_character_schema.decomposition = man_character.decomposition
     man_character_schema.etymology = man_character.etymology

@@ -133,7 +133,7 @@ class Character(Common):
 
 class Word(Common):
     pinyin_no_spaces: str
-    components: Optional[List[Character]]
+    components: List[Character] = []
     radical: Optional[Radical]  # if it's one character word will have
     hsk: Optional[HSKLevel]  # some words won't have this
 

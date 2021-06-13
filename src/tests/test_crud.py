@@ -55,23 +55,31 @@ def test_get_simplified_no_pinyin_mutliple_results(db: Session):
 
 
 def test_get_word_and_character_no_pinyin(db: Session):
-    word_character_result: Row = get_word_and_character(db, simplified="好")
-    assert len(word_character_result) == 2
-    word: Word = word_character_result.Word
-    character: Character = word_character_result.Character
-    assert isinstance(word, Word)
-    assert isinstance(character, Character)
+    word_character_results: List[Row] = get_word_and_character(db, simplified="好")
+    assert len(word_character_results) == 2
+    word_1: Word = word_character_results[0].Word
+    word_2: Word = word_character_results[1].Word
+    character_1: Character = word_character_results[0].Character
+    character_2: Character = word_character_results[1].Character
+    assert isinstance(word_1, Word)
+    assert isinstance(word_2, Word)
+    assert isinstance(character_1, Character)
+    assert isinstance(character_2, Character)
 
 
 def test_get_word_and_character_with_clean_pinyin(db: Session):
-    word_character_result: Row = get_word_and_character(
+    word_character_results: Row = get_word_and_character(
         db, simplified="好", pinyin_clean="hao"
     )
-    assert len(word_character_result) == 2
-    word: Word = word_character_result.Word
-    character: Character = word_character_result.Character
-    assert isinstance(word, Word)
-    assert isinstance(character, Character)
+    assert len(word_character_results) == 2
+    word_1: Word = word_character_results[0].Word
+    word_2: Word = word_character_results[1].Word
+    character_1: Character = word_character_results[0].Character
+    character_2: Character = word_character_results[1].Character
+    assert isinstance(word_1, Word)
+    assert isinstance(word_2, Word)
+    assert isinstance(character_1, Character)
+    assert isinstance(character_2, Character)
 
 
 def test_get_simplified_character(db: Session):
